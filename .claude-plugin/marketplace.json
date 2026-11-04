@@ -1,0 +1,6 @@
+{
+  "name": "nathan-v",
+  "description": "Claude Code mods by Nathan V.",
+  "owner": { "name": "Nathan V", "url": "https://www.nathanv.com" },
+  "plugins": [{ "name": "session-statusbar", "source": "./" }]
+}

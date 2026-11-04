@@ -1,0 +1,39 @@
+# CI shape shared across nathan-v repos: lint and test jobs on push/PR to main.
+# This repo is a Claude Code mod, so both jobs run the Claude Code CLI against it.
+# Unit tests run with no live services; the engine's test kit stands in for
+# everything beneath the plugin. Actions are pinned to commit SHAs.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Install the Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code@2.1.318
+      - name: Validate the manifest, marketplace and hooks module
+        run: claude plugin validate .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Install the Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code@2.1.318
+      - name: Test
+        run: claude plugin test .

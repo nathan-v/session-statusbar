@@ -1,0 +1,41 @@
+# Node / TypeScript
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Written by the Claude Code engine while it loads the mod (it keeps its own .gitignore there)
+.claude-plugin/types/
+
+# OS / editor junk
+.DS_Store
+*.swp
+*.swo
+.idea/
+# .vscode/
+
+# Environments and secrets
+.env
+.venv
+venv/
+*.pem
+*.key
+
+# AI model memory/context files
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+AGENTS.md
+CODEX.md
+.codex/
+.opencode/
+.cursorrules
+.cursor/
+.aider*
+.copilot/
+.serena/
+graphify-out/
+*.pt
+
+# Local working docs and scratch scripts (kept out of the repo)
+*.local.md
+*.local.py

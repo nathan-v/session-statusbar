@@ -1,0 +1,34 @@
+{
+  "name": "session-statusbar",
+  "version": "0.1.0",
+  "description": "A status bar above the prompt showing model, advisor, context fill, token usage by main/agents/advisor, and API cost.",
+  "author": {
+    "name": "Nathan V",
+    "url": "https://www.nathanv.com"
+  },
+  "homepage": "https://github.com/nathan-v/session-statusbar",
+  "repository": "https://github.com/nathan-v/session-statusbar",
+  "license": "MIT",
+  "keywords": [
+    "statusbar",
+    "status-line",
+    "context",
+    "tokens",
+    "cost",
+    "advisor"
+  ],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "placement": {
+      "type": "string",
+      "title": "Where to draw the bar",
+      "description": "band: a full colored bar above the prompt. hint: a compact line under the prompt, appended to the hint line. both: draw both.",
+      "default": "band",
+      "options": [
+        "band",
+        "hint",
+        "both"
+      ]
+    }
+  }
+}
